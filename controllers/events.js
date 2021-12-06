@@ -44,6 +44,7 @@ const actualizarEvento = async ( req, res = response) => {
 
     try {
         const evento = await Evento.findById(eventoID)
+        console.log(eventoID);
 
         if(!evento){
             return res.status(404).json({
@@ -58,7 +59,6 @@ const actualizarEvento = async ( req, res = response) => {
                 msg: 'No tiene privilegios de editar este evento'
             });
         };
-
 
         const nuevoEvento = {
             ...req.body,
